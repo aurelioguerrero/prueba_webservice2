@@ -1,0 +1,25 @@
+<html>
+	<head>		
+		<script type="text/javascript" src="js/soapclient.js"></script>
+        <script src="phonegap.js"></script>
+		<script type="text/javascript">
+		
+			var url = "http://www.reactiva.com.co:8097/atlas/AutenticarUsuarioWS";
+			
+			function CallService()
+			{
+				var pl = new SOAPClientParameters();
+				pl.add("username", "atlas");
+				pl.add("name", "12345");
+				SOAPClient.invoke(url, "autenticar", pl, true, HelloTo_callBack);
+			}
+			function HelloTo_callBack(r)
+			{
+				alert(r);
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="prueba" onClick="CallService();" />
+	</body>
+</html>
